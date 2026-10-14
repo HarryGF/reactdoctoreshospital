@@ -55,6 +55,18 @@ export default class Menucomponent extends Component {
                             }
                         </ul>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link active" aria-current="page" 
+                            to="/crearhospital">
+                                New Hospital
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link active" aria-current="page" 
+                            to="/hospitales">
+                                Hospitales
+                            </NavLink>
+                        </li>
                     </ul>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

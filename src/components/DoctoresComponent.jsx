@@ -5,7 +5,6 @@ import DetallesDoctor from './DetallesDoctor'
 
 export default class DoctoresComponent extends Component {
 
-    selectDoctor = React.createRef()
     urlDoctores = Global.urlApiDoctores
 
     state = {
@@ -34,15 +33,6 @@ export default class DoctoresComponent extends Component {
                 idDoctor: -1
             })
         }
-    }
-
-    mostrarDetalles = (event) => {
-        event.preventDefault()
-        console.log(this.selectDoctor.current.value)
-        let id = this.selectDoctor.current.value
-        this.setState({
-            idDoctor: id
-        })
     }
 
     render() {
