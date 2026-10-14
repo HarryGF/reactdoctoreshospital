@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Global from '../Global'
+
 import DetallesDoctor from './DetallesDoctor'
+import ServiceHospitales from './services/ServiceHospitales'
 
 export default class DoctoresComponent extends Component {
 
-    urlDoctores = Global.urlApiDoctores
-
+    service = new ServiceHospitales()
     state = {
         doctores: [],
         idDoctor: null
     }
 
     loadDoctores = () => {
-        console.log('Cargando doctores del hospital ' + this.props.idHospital)
-        let request = '/api/Doctores/DoctoresHospital/' + this.props.idHospital 
-        axios.get(this.urlDoctores + request).then((response) => {
+        this.service.getDoctoresHospital(this.props.idHospital).then(result => {
             this.setState({
-                doctores: response.data
+                doctores: result
             })
         })
     }
