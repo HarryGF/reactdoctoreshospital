@@ -30,6 +30,9 @@ export default class DoctoresComponent extends Component {
     componentDidUpdate = (oldProps) => {
         if (oldProps.idHospital != this.props.idHospital) {
             this.loadDoctores()
+            this.setState({
+                idDoctor: -1
+            })
         }
     }
 
@@ -51,6 +54,7 @@ export default class DoctoresComponent extends Component {
                         <tr>
                             <th>ID</th>
                             <th>Apellido</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,8 +64,12 @@ export default class DoctoresComponent extends Component {
                                     <td>{doctor.idDoctor}</td>
                                     <td>{doctor.apellido}</td>
                                     <td>
-                                        <button onClick={this.mostrarDetalles} 
-                                        ref={this.selectDoctor} value={doctor.idDoctor}>
+                                        <button className='btn btn-danger'
+                                            onClick={()=>{
+                                                this.setState({
+                                                    idDoctor:doctor.idDoctor
+                                                })
+                                            }}>
                                             Mostrar detalles
                                         </button>
                                     </td>

@@ -12,7 +12,6 @@ export default class DetallesDoctor extends Component {
 
     loadDetalles = () => {
         let id = this.props.id
-        console.log('Cargando detalles del doctor' + id)
         let request = '/api/Doctores/' + id
         axios.get(this.urlDoctores + request).then((response) => {
             this.setState({
@@ -25,11 +24,17 @@ export default class DetallesDoctor extends Component {
         this.loadDetalles()
     }
 
+    componentDidUpdate = (oldProps) => {
+        if (oldProps.id != this.props.id) {
+            this.loadDetalles()
+        }
+    }
+
     render() {
         return (
             <div>
                 <h3>Detalles del doctor {this.props.id}</h3>
-                <table className='table table-primary'>
+                <table className='table table-secondary'>
                     <thead>
                         <tr>
                             <th>Apellido</th>
